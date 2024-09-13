@@ -115,7 +115,7 @@ if(parseResult.success===false) {
 }
   //perform removing student from DB. You can choose from 2 choices
   //1. use array filter method
-   DB.students = DB.students.filter((student)=>body.student.studentId !== student.studentId);
+   
 const foundIndex = DB.students.findIndex(
   (std)=> std.studentId === body.studentId
 );
@@ -130,6 +130,7 @@ if(foundIndex === -1) {
 }
   //or 2. use splice array method
   // DB.students.splice(...)
+  DB.students = DB.students.filter((student)=>body.studentId !== student.studentId);
 
   return NextResponse.json({
     ok: true,
